@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pedidobox" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetopadaria.PedidoController">
+
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+
+            <Menu mnemonicParsing="false" text="Produtos">
+                <items>
+                    <MenuItem fx:id="btnProduto" mnemonicParsing="false" onAction="#produtoClick" text="Produtos" />
+                </items>
+            </Menu>
+
+            <Menu mnemonicParsing="false" text="Funcionarios">
+                <items>
+                    <MenuItem fx:id="btnFuncionarios" mnemonicParsing="false" onAction="#funcionarioClick" text="Funcionarios" />
+                </items>
+            </Menu>
+
+            <Menu mnemonicParsing="false" text="Sobre">
+                <items>
+                    <MenuItem fx:id="btnSobre" mnemonicParsing="false" onAction="#sobreClick" text="Sobre" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <Label fx:id="modoLabel" layoutX="152.0" layoutY="35.0" prefHeight="16.0" prefWidth="166.0" />
+
+    <GridPane alignment="CENTER" hgap="5" layoutX="107.0" layoutY="53.0" prefHeight="134.0" prefWidth="326.0" vgap="5" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="53.0">
+        <Label fx:id="nomeLabel" text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="nomeText" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label fx:id="telefoneLabel" text="Telefone" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="telefoneText" prefHeight="24.0" prefWidth="243.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label fx:id="totalLabel" text="Total" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="totalText" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Button fx:id="salvarButton" onMouseClicked="#onSalvarClienteButtonClick" text="Salvar" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Button fx:id="sairModoEdicaoButton" onMouseClicked="#onSairModoEdicaoButtonClick" text="Sair do modo de edição" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <VBox layoutX="509.0" layoutY="43.0" prefHeight="155.0" prefWidth="386.0">
+        <Label fx:id="pesquisaPorIdLabel" prefHeight="23.0" prefWidth="116.0" text="Pesquisa por id" />
+        <HBox>
+            <TextField fx:id="pesquisaPorIdText" prefHeight="30.0" prefWidth="209.0" />
+            <Button fx:id="pesquisaPorIdButton" onMouseClicked="#onPesquisaPorIdButtonClick" prefHeight="29.0" prefWidth="166.0" text="Pesquisar" />
+        </HBox>
+        <Label id="pesquisaPorNomeLabel" text="Busca por nome">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin></Label>
+        <HBox>
+            <TextField fx:id="pesquisaPorNomeText" prefHeight="32.0" prefWidth="216.0" />
+            <Button fx:id="nomeButton" onMouseClicked="#onPesquisaNomeButtonClick" prefHeight="34.0" prefWidth="162.0" text="Nome do cliente" />
+        </HBox>
+        <HBox>
+            <Button fx:id="todosButton" onMouseClicked="#onPesquisaTodosButtonClick" prefHeight="32.0" prefWidth="186.0" text="Mostrar todos" />
+            <Button fx:id="recenteButton" onMouseClicked="#onPesquisaRecenteButtonClick" prefHeight="32.0" prefWidth="204.0" text="Mais recente" />
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <HBox.margin>
+            <Insets top="5.0" />
+         </HBox.margin>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="tabelaPedido" layoutX="92.0" layoutY="213.0" prefHeight="174.0" prefWidth="408.0">
+        <columns>
+            <TableColumn fx:id="colunaId" text="Id" />
+            <TableColumn fx:id="colunaNome" text="Nome" />
+            <TableColumn fx:id="colunaTelefone" text="Telefone" />
+            <TableColumn fx:id="colunaTotal" text="Total" />
+            <TableColumn fx:id="colunaData" text="data" />
+        </columns>
+    </TableView>
+
+    <HBox layoutX="538.0" layoutY="237.0" prefHeight="85.0" prefWidth="357.0">
+        <Button fx:id="excluirButton" onMouseClicked="#onExcluirButtonClick" prefHeight="62.0" prefWidth="144.0" text="Excluir selecionado" textAlignment="CENTER" />
+        <Button fx:id="editarButton" onMouseClicked="#onEditarButtonClick" prefHeight="62.0" prefWidth="151.0" text="Editar selecionado" />
+    </HBox>
+
+    <Button fx:id="sairtudo" layoutX="549.0" layoutY="412.0" onMouseClicked="#onSairButtonClick" prefHeight="53.0" prefWidth="306.0" text="sair" />
+    <Button fx:id="botaoVoltar" layoutX="173.0" layoutY="412.0" onMouseClicked="#onVoltarButtonClick" prefHeight="53.0" prefWidth="306.0" text="Voltar" />
+</AnchorPane>

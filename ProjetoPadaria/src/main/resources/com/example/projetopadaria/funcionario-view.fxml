@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="funcionariobox" prefHeight="487.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projetopadaria.FuncionarioController">
+
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+
+            <Menu mnemonicParsing="false" text="Produtos">
+                <items>
+                    <MenuItem fx:id="btnProduto" mnemonicParsing="false" onAction="#produtoClick" text="Produtos" />
+                </items>
+            </Menu>
+
+            <Menu mnemonicParsing="false" text="Pedidos">
+                <items>
+                    <MenuItem fx:id="btnPedidos" mnemonicParsing="false" onAction="#pedidoClick" text="Pedidos" />
+                </items>
+            </Menu>
+
+            <Menu mnemonicParsing="false" text="Sobre">
+                <items>
+                    <MenuItem fx:id="btnSobre" mnemonicParsing="false" onAction="#sobreClick" text="Sobre" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <Label fx:id="modoLabel" layoutX="126.0" layoutY="33.0" prefHeight="25.0" prefWidth="133.0" />
+
+    <GridPane alignment="CENTER" hgap="5" layoutX="53.0" layoutY="58.0" prefHeight="151.0" prefWidth="371.0" vgap="5" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="58.0">
+        <Label fx:id="nomeLabel" text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="nomeText" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label fx:id="cargoLabel" text="Cargo" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="cargoText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label fx:id="telefoneLabel" prefHeight="16.0" prefWidth="89.0" text="Telefone" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="telefoneText" prefHeight="25.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label fx:id="salarioLabel" prefHeight="16.0" prefWidth="64.0" text="Salario" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="salarioText" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Button fx:id="salvarButton" onMouseClicked="#onSalvarFuncionarioButtonClick" prefHeight="24.0" prefWidth="90.0" text="Salvar" GridPane.rowIndex="4" />
+        <Button fx:id="sairModoEdicaoButton" onMouseClicked="#onSairModoEdicaoButtonClick" prefHeight="25.0" prefWidth="238.0" text="Sair do modo de edição" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <VBox layoutX="451.0" layoutY="114.0" prefHeight="95.0" prefWidth="476.0">
+        <Label fx:id="pesquisaPorIdLabel" text="Pesquisa por id" />
+        <HBox prefHeight="22.0" prefWidth="476.0">
+            <TextField fx:id="pesquisaPorIdText" />
+            <Button fx:id="pesquisaPorIdButton" onMouseClicked="#onPesquisaPorIdButtonClick" prefHeight="25.0" prefWidth="91.0" text="Pesquisar" />
+            <Button fx:id="todosButton" onMouseClicked="#onPesquisaTodosButtonClick" prefHeight="25.0" prefWidth="260.0" text="Mostrar todos" />
+        </HBox>
+        <HBox>
+            <Button fx:id="ganhaMenosButton" onMouseClicked="#onPesquisaGanhaMenosButtonClick" prefHeight="36.0" prefWidth="206.0" text="Salario menor" />
+            <Button fx:id="ganhaMaisButton" onMouseClicked="#onPesquisaGanhaMaisButtonClick" prefHeight="36.0" prefWidth="294.0" text="Salario maior" />
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="tabelaFuncionario" layoutX="74.0" layoutY="229.0" prefHeight="174.0" prefWidth="392.0">
+        <columns>
+            <TableColumn fx:id="colunaId" text="Id" />
+            <TableColumn fx:id="colunaNome" text="Nome" />
+            <TableColumn fx:id="colunaSalario" text="Salario" />
+            <TableColumn fx:id="colunaTelefone" text="Telefone" />
+            <TableColumn fx:id="colunaCargo" text="Cargo" />
+        </columns>
+    </TableView>
+
+    <HBox layoutX="516.0" layoutY="263.0" prefHeight="53.0" prefWidth="371.0">
+        <Button fx:id="editarButton" onMouseClicked="#onEditarButtonClick" prefHeight="53.0" prefWidth="171.0" text="Editar selecionado" />
+        <Button fx:id="excluirButton" onMouseClicked="#onExcluirButtonClick" prefHeight="52.0" prefWidth="217.0" text="Excluir selecionado" />
+    </HBox>
+
+    <Button fx:id="sairtudo" layoutX="529.0" layoutY="420.0" onMouseClicked="#onSairButtonClick" prefHeight="53.0" prefWidth="258.0" text="sair" />
+    <Button fx:id="botaoVoltar" layoutX="238.0" layoutY="420.0" onMouseClicked="#onVoltarButtonClick" prefHeight="53.0" prefWidth="240.0" text="Voltar" />
+
+</AnchorPane>
